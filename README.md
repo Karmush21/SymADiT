@@ -2,7 +2,7 @@
 
 ![Overview of the SymADiT framework](assets/symadit_graphical_abstract.png)
 
-This repository contains the offical implementation for the NeurIPS 2026 paper **SymADiT: Symmetry-Aware Crystal Generation with Latent Flow Matching**  by Anmar Karmush, Cedric Mathieu Brandenburg, Soheil Ershadrad, Johanna Rosen, Michael Felsberg, and Filip Ekström Kelvinius.
+This repository contains the official implementation of the NeurIPS 2026 paper **[SymADiT: Symmetry-Aware Crystal Generation with Latent Flow Matching](https://arxiv.org/abs/2605.10115)** by Anmar Karmush, Cedric Mathieu Brandenburg, Soheil Ershadrad, Johanna Rosen, Michael Felsberg, and Filip Ekström Kelvinius.
 
 
 ## Data
