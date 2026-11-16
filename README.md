@@ -17,7 +17,54 @@ Additionally, the `data/symmetry/` directory contains the Wyckoff symmetry infor
 
 ## Installation
 
-More information will come.
+
+The code was developed using **Python 3.10, PyTorch 2.4.1, and CUDA 12.4**. We recommend using Mamba to create an isolated environment.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Karmush21/SymADiT.git
+cd SymADiT
+```
+
+### 2. Create the environment
+
+Create and activate the environment using the provided `environment.yml`:
+
+```bash
+mamba env create -f environment.yml
+mamba activate symadit
+```
+
+### 3. Install torch-scatter
+
+Install the precompiled `torch-scatter` wheel compatible with PyTorch 2.4.1 and CUDA 12.4:
+
+```bash
+python -m pip install --no-index \
+  --find-links 'https://data.pyg.org/whl/torch-2.4.0+cu124.html' \
+  'torch-scatter==2.1.2'
+```
+
+### 4. Verify the installation
+
+Verify that PyTorch can access the GPU:
+
+```bash
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+```
+
+On a supported NVIDIA GPU, `torch.cuda.is_available()` should return `True`.
+
+You can also verify the main dependencies:
+
+```bash
+python -c "import lightning, torch_geometric, torch_scatter, pymatgen, pyxtal, hydra, rootutils; print('Imports successful!')"
+```
+
+The environment is configured for CUDA 12.4. Users with different CUDA requirements may need to install a compatible PyTorch version and the corresponding PyTorch Geometric extensions.
+
+The provided environment is based on the original development setup and has not yet been validated through a clean installation. Additional dependencies may be required for certain evaluation utilities.
 
 ## Checkpoints
 
