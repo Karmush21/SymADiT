@@ -5,22 +5,29 @@
 This repository contains the official implementation of the NeurIPS 2026 paper **[SymADiT: Symmetry-Aware Crystal Generation with Latent Flow Matching](https://arxiv.org/abs/2605.10115)** by Anmar Karmush, Cedric Mathieu Brandenburg, Soheil Ershadrad, Johanna Rosen, Michael Felsberg, and Filip Ekström Kelvinius.
 
 
-## Data
+## Data and Preprocessing
 
 
-More information will come.
+The three datasets used in the paper are provided in the `data/` directory. Each dataset has its own subdirectory containing a CSV file with the raw crystal structures. The preprocessing pipeline can be used to convert these CSV files into `.pt` files required for training.
 
+Each dataset directory also contains precomputed histograms of space group frequencies and the distribution of the number of atomic orbits conditioned on the space group. These statistics are used during the generation process.
+
+Additionally, the `data/symmetry/` directory contains the Wyckoff symmetry information used to construct symmetry-aware crystal representations.
 
 
 ## Installation
 
 More information will come.
 
+## Checkpoints
 
+Checkpoints are on the way! 
 
 ## Scripts
 
-Training is performed in two stages. **Train the autoencoder first**, then use its checkpoint to train the latent flow-matching model.
+The pipeline consists of four stages: autoencoder training, latent flow-matching training, crystal generation, and evaluation. First, the autoencoder is trained to learn a symmetry-aware latent representation of crystal structures. Its checkpoint is then used to train a latent flow-matching model (DiT). Once trained, the model can generate new crystal structures, which can subsequently be evaluated using the provided evaluation pipeline.
+
+
 
 **Stage 1 — Autoencoder:**
 

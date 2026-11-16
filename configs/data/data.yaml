@@ -1,0 +1,25 @@
+datamodule:
+  _target_: src.data.datamodule.DataModule
+
+  dataset:
+    _target_: src.data.dataset.SymDataset
+    root: ${paths.data_dir}
+
+  batch_size:
+    train: 256
+    val: 256
+    test: 256
+
+  num_workers:
+    train: 16
+    val: 16
+    test: 16
+
+
+  debug: ${debug}    
+
+  use_all_data: ${use_all_data}
+
+  split_seed: 42
+
+  save_split_indices: True

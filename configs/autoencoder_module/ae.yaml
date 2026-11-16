@@ -1,0 +1,59 @@
+_target_: src.models.ae_module.SymAutoencoder
+
+encoder: ${encoder}
+decoder: ${decoder}
+
+pos_loss: periodic #[l1, l2, smooth_l1, periodic]
+cell_loss: l2
+
+latent_dim: 32
+
+optimizer:
+  _target_: torch.optim.AdamW
+  _partial_: true
+  lr: 0.0001
+  weight_decay: 0.0
+
+scheduler:
+  # If you want LRS, otherwise comment out and put the scheduler to zero
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.5
+  patience: 10
+  threshold: 1e-4
+  threshold_mode: rel
+  cooldown: 0
+  min_lr: 1e-6
+
+scheduler_frequency: ${trainer.check_val_every_n_epoch}
+
+# Decide on reguarilziation
+# both cannot be the same
+use_regularized_ae: true 
+use_regularized_kl: false
+
+
+
+loss_weights:
+  loss_atom_types: 1.0
+  loss_wyckoff: 1.0
+  loss_pos: 5.0 # For the frac coords
+  loss_cell: 1.0
+  loss_kl:  0.001
+
+
+augmentations:
+  do_augmentations: true
+  pos_sigma: 0.03        # in fractional units
+  cell_len_sigma: 0.03   # relative scale for a,b,c (in Å)
+  cell_ang_sigma: 0.03   # in radians (~1.1 degrees)
+  type_mask_frac: 0.0    # mask 10% of atoms
+
+  
+
+# compile model for faster training with pytorch 2.0
+compile: false
+
+
+debug: ${debug} 

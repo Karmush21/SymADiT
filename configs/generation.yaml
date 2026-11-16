@@ -1,0 +1,59 @@
+defaults:
+  - paths: default
+  - hydra: default
+  - logger: wandb
+  - extras: default
+  - _self_
+
+dataset: "mp20" # NOTE not needed, everything needed will be saved in the checkpoint I think
+
+# run name, eg. for wandb logging
+name: "sym_generation"
+
+# task name, determines output directory path
+task_name: "sym_generation"
+
+tags: ["sym_generation"]
+
+ldm_ckpt: ""
+vae_ckpt: ""
+
+use_local_histograms: false
+
+wyckoff_explore_sampling: false
+wyckoff_explore_sampling_alpha: 0.2
+
+# Overwrites the saving procedure (because we don't have the ddp issue here)
+hydra:
+  run:
+    # option A: fixed directory (no timestamp)
+    dir: ${paths.log_dir}/${task_name}/${name}
+
+
+generate:
+
+  saving_dir: ${paths.output_dir}
+  num_samples: 10
+  batch_size: 5
+  cfg_scale: 2.0
+  num_timesteps: 500
+  seed: 0
+  device: cuda
+
+
+priors:
+  spacegroups_bincount: ${paths.data_dir}/spacegroups_bincount.pt
+  sg_num_orbits_conditionals: ${paths.data_dir}/sg_num_orbits_conditionals.pt
+
+conditioning:
+  allowed_spacegroups: null
+  forbidden_spacegroups: null
+
+temperature:
+   wyckoff: 1.4
+   atom_type: 1.0
+
+
+
+
+seed: 2000

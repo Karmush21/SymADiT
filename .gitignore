@@ -167,6 +167,10 @@ scripts/slurm/logs
 scripts/slurm_hopper/logs
 
 
+data/**/processed/
+data/**/all_ori.pt
+
+
 src/eval_gen_pipeline/output_dir/
 
 

@@ -1,0 +1,26 @@
+defaults:
+  - ema
+  - model_checkpoint
+  # - early_stopping
+  # - learning_rate_monitor
+  - _self_
+
+
+model_checkpoint:
+  dirpath: ${paths.output_dir}/checkpoints
+  filename: "ldm-epoch@{epoch}-val_valid_rate@{val/valid_rate:.4f}-val_novel_rate@{val/novel_rate:.4f}"
+  save_last: True
+
+  
+  # if save check_val_every_n_epochs is say 5 (5,10,15,20,...)
+  # and every_n_epochs is 2 (2,4,6,8,10,...)
+  # then you you would save at 10, 20, 30, ....
+  every_n_epochs: null
+
+  save_top_k: -1
+
+
+# early_stopping:
+#   monitor: "val/valid_rate"
+#   patience: 100
+#   mode: "max"

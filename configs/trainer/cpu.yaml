@@ -1,0 +1,5 @@
+defaults:
+  - default
+
+accelerator: cpu
+devices: 1 # NOTE IF you ever wanna try ddp on local cluster, change this to e.g. 2, and then remove num_gpus from e.g. local_vae script and run it
