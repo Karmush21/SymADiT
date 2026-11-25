@@ -53,7 +53,7 @@ def load_training_cifs_for_novelty(data_dir):
     df = pd.read_csv(os.path.join(data_dir, "raw", "raw.csv"))
 
     if dataset_name == "mp20":
-        train_idx = torch.arange(0, 1000)
+        train_idx = torch.arange(0, 27138)
 
     elif dataset_name == "mpts52":
         train_idx = torch.arange(0, 27380)
