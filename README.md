@@ -111,8 +111,8 @@ If you use this code, please cite the SymADiT paper:
 
 ```bibtex
 @inproceedings{karmush2026symadit,
-  title     = {SymADiT: Symmetry-Aware Crystal Generation with Latent Flow Matching},
-  author    = {Karmush, Anmar and Brandenburg, Cedric Mathieu and Ershadrad, Soheil and Rosen, Johanna and Felsberg, Michael and Ekstr{"o}m Kelvinius, Filip},
+  title     = {{SymADiT}: Symmetry-Aware Crystal Generation with Latent Flow Matching},
+  author    = {Karmush, Anmar and Brandenburg, Cedric Mathieu and Ershadrad, Soheil and Rosen, Johanna and Felsberg, Michael and Ekstr{\"o}m Kelvinius, Filip},
   booktitle = {Advances in Neural Information Processing Systems},
   year      = {2026}
 }
