@@ -471,10 +471,10 @@ def main():
     
     
     if args.dataset == "mp20":
-        train_idx = torch.arange(0, 27317) # NOTE 27317 is the training size of mp20
+        train_idx = torch.arange(0, 27138)
 
     elif args.dataset == "mpts52":
-        train_idx = torch.arange(0, 27380) # 27380
+        train_idx = torch.arange(0, 27380)
 
     elif args.dataset == "mp20_mpts52_merged":
         split_path = os.path.join(dataset_root, "train_val_split.pt")
